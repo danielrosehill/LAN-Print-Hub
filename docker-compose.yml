@@ -5,6 +5,7 @@ services:
     image: lan-print-hub:local
     container_name: print-hub
     restart: unless-stopped
+    user: "1000:1000"   # daniel, so ./data stays owned by the host user
     # Host networking on purpose: the hub reaches CUPS at localhost:631 (whose cupsd.conf only allows
     # localhost, the LAN, the tailnet and one gateway subnet), the NIIMBOT bridge on 127.0.0.1:9181,
     # and tailnet hosts (the desktop's P-touch bridge) directly. No Docker network, so no subnet to allocate.
