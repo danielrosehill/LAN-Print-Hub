@@ -1,0 +1,36 @@
+# Copy to data/targets.yaml. Keys are target ids (what clients send as "target").
+# kind: document | label. One target per kind may be default: true (used when a job names none).
+targets:
+  hp-deskjet-5200:
+    kind: document
+    driver: cups
+    name: HP DeskJet 5200
+    location: Home office, A4, colour, duplex
+    cups: localhost:631          # CUPS server; the hub runs with host networking
+    queue: hp-deskjet-5200
+    pdf_as_ps: true              # convert PDFs to PostScript first (snap CUPS 2.4.20 pdftopdf fault)
+    paper: A4
+    default: true
+    aliases: [hp, deskjet, "5200"]
+
+  niimbot-b1:
+    kind: label
+    driver: niimblue
+    name: NIIMBOT B1
+    location: USB on the server; die-cut 40x30 roll
+    bridge: http://127.0.0.1:9181
+    port: /dev/serial/by-id/usb-NIIMBOT_B1_LABEL_PRINTER_<serial>-if00
+    media: 40x30                 # across x along, mm
+    margin_mm: 1
+    offset_mm: -2                # print-position calibration, negative = left
+    density: 3
+    default: true
+    aliases: [niimbot]
+
+  pt-p710bt:
+    kind: label
+    driver: ptouch-bridge
+    name: Brother PT-P710BT (P-touch Cube)
+    location: USB on the desktop; TZe tape
+    bridge: http://<desktop-tailnet-ip>:9181
+    aliases: [ptouch, p-touch, brother]
