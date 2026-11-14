@@ -40,7 +40,7 @@ accepted it (`result.cups_job`); follow it in CUPS from there.
 
 `data/targets.yaml`, see [`targets.example.yaml`](targets.example.yaml). Edits apply to the next job; no restart.
 Env: `HUB_PORT` (9190), `HUB_KEEP_DAYS` (job history, 90), `HUB_MAX_COPIES` (20), `HUB_FONT`.
-Labels use IBM Plex Sans Bold (`fonts-ibm-plex`).
+Labels use IBM Plex Sans Bold, downloaded from IBM's GitHub at build time (`fonts-ibm-plex` is not in Debian trixie).
 
 ## Deployment (residencehome)
 
